@@ -69,17 +69,19 @@
 						<artifactId>site-maven-plugin</artifactId>
 						<version>0.8</version>
 						<configuration>
+							<!-- CHANGE ME: at actual deployment time -->
+							<dryRun>false</dryRun>
+
 							<message>Maven artifacts for ${project.version}</message>  <!-- Commit message -->
 							<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
 
 							<!-- matches distribution management repository url above -->
 							<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> 
 
-							<branch>refs/heads/mvn-repo</branch>    <!-- remote branch name -->
+							<branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
 							<includes><include>**/*</include></includes>
 							<repositoryName>kura_addons</repositoryName>               <!-- github repo name -->
-							<repositoryOwner>eurotech</repositoryOwner>
-             <!-- github username  -->
+							<repositoryOwner>eurotech</repositoryOwner>                <!-- github username  -->
 						</configuration>
 						<executions>
 							<execution>
