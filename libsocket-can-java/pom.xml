@@ -12,6 +12,7 @@
 	<groupId>de.entropia</groupId>
 	<artifactId>libsocket-can-java</artifactId>
 	<name>libsocket-can-java</name>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 
