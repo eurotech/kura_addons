@@ -1,0 +1,36 @@
+#NOTE: This is an internal implementation file, its format can be changed without prior notice.
+#Wed Nov 07 15:32:29 CET 2012
+http\://dev.mapfish.org/maven/repository/.error=
+http\://maven.springframework.org/external/.lastUpdated=1352298747696
+http\://repo.opengeo.org/.lastUpdated=1352298747992
+https\://oss.sonatype.org/content/repositories/snapshots/.error=
+http\://download2.osgeo.org/webdav/geotools/.lastUpdated=1352298748447
+http\://maven.springframework.org/external/.error=
+http\://people.apache.org/repo/m2-incubating-repository/.lastUpdated=1352298746635
+http\://www.hibernatespatial.org/repository/.error=
+http\://www.terracotta.org/download/reflector/releases/.error=
+http\://download2.osgeo.org/webdav/geotools/.error=
+http\://gwtquery-ui.googlecode.com/svn/mavenrepo/.error=
+http\://gwtquery-ui.googlecode.com/svn/mavenrepo/.lastUpdated=1352298749627
+http\://gwt-maven.googlecode.com/svn/trunk/mavenrepo/.lastUpdated=1352298744772
+http\://mirrors.ibiblio.org/pub/mirrors/maven2/.lastUpdated=1352298747180
+http\://repo.maven.apache.org/maven2/.lastUpdated=1352298749769
+http\://maven.jahia.org/maven2/.error=
+http\://maven.jahia.org/maven2/.lastUpdated=1352298744877
+http\://download.java.net/maven/2/.lastUpdated=1352298746182
+http\://repo.maven.apache.org/maven2/.error=
+http\://oss.sonatype.org/content/repositories/sourceforge-releases/.lastUpdated=1352298749433
+https\://oss.sonatype.org/content/repositories/snapshots/.lastUpdated=1352298745849
+http\://download.java.net/maven/2/.error=
+http\://dev.mapfish.org/maven/repository/.lastUpdated=1352298165476
+http\://people.apache.org/repo/m2-incubating-repository/.error=
+http\://oss.sonatype.org/content/repositories/sourceforge-releases/.error=
+http\://maven.springframework.org/release/.lastUpdated=1352298747447
+http\://mirrors.ibiblio.org/pub/mirrors/maven2/.error=
+http\://gwt-maven.googlecode.com/svn/trunk/mavenrepo/.error=
+http\://www.hibernatespatial.org/repository/.lastUpdated=1352298744994
+http\://repo.geosdi.org/.lastUpdated=1352298744577
+http\://www.terracotta.org/download/reflector/releases/.lastUpdated=1352298749091
+http\://repo.opengeo.org/.error=
+http\://repo.geosdi.org/.error=
+http\://maven.springframework.org/release/.error=
