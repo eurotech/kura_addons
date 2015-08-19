@@ -3,14 +3,15 @@
   <groupId>org.eclipse.kura</groupId>
   <artifactId>org.eclipse.kura.web</artifactId>
   <versioning>
-    <release>1.0.4</release>
+    <release>1.0.5</release>
     <versions>
       <version>1.0.0</version>
       <version>1.0.1</version>
       <version>1.0.2</version>
       <version>1.0.3</version>
       <version>1.0.4</version>
+      <version>1.0.5</version>
     </versions>
-    <lastUpdated>20150604180648</lastUpdated>
+    <lastUpdated>20150819181216</lastUpdated>
   </versioning>
 </metadata>
