@@ -3,6 +3,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse</groupId>
-  <artifactId>org.eclipse.equonox.ds</artifactId>
+  <artifactId>org.eclipse.equinox.ds</artifactId>
   <version>1.4.0.v20120522-1841</version>
 </project>
