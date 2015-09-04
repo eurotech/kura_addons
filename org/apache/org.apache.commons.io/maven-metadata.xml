@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.apache</groupId>
+  <artifactId>org.apache.commons.io</artifactId>
+  <versioning>
+    <release>2.4.0</release>
+    <versions>
+      <version>2.4.0</version>
+    </versions>
+    <lastUpdated>20150904133112</lastUpdated>
+  </versioning>
+</metadata>

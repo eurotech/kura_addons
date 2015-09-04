@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google</groupId>
+  <artifactId>com.google.protobuf</artifactId>
+  <versioning>
+    <release>2.6.0</release>
+    <versions>
+      <version>2.6.0</version>
+    </versions>
+    <lastUpdated>20150904133101</lastUpdated>
+  </versioning>
+</metadata>
