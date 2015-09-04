@@ -3,6 +3,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>osgi</groupId>
-  <artifactId>org.eclipse.equinox.registry</artifactId>
+  <artifactId>osgi.cmpn</artifactId>
   <version>4.3.0.201111022214</version>
 </project>
