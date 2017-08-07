@@ -4,5 +4,5 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.kura</groupId>
   <artifactId>com.google.gson</artifactId>
-  <version>2.2.4</version>
+  <version>2.2.4.v201311231704</version>
 </project>
