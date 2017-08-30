@@ -3,13 +3,14 @@
   <groupId>org.eclipse.kura</groupId>
   <artifactId>com.google.gson</artifactId>
   <versioning>
-    <release>2.5.0</release>
+    <release>2.7.0.v20170129-0911</release>
     <versions>
       <version>2.2.4</version>
       <version>2.2.4.v201311231704</version>
       <version>2.5</version>
       <version>2.5.0</version>
+      <version>2.7.0.v20170129-0911</version>
     </versions>
-    <lastUpdated>20170808123938</lastUpdated>
+    <lastUpdated>20170830122151</lastUpdated>
   </versioning>
 </metadata>
