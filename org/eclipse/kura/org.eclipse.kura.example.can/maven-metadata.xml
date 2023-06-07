@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.eclipse.kura</groupId>
+  <artifactId>org.eclipse.kura.example.can</artifactId>
+  <versioning>
+    <release>1.3.0</release>
+    <versions>
+      <version>1.3.0</version>
+    </versions>
+    <lastUpdated>20230607125525</lastUpdated>
+  </versioning>
+</metadata>
