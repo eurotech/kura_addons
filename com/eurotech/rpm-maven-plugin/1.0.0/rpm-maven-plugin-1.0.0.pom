@@ -1,8 +1,275 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work
+  for additional information regarding copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the "License"); you
+  may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless
+  required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
+  OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>76</version>
+  </parent>
+
   <groupId>com.eurotech</groupId>
   <artifactId>rpm-maven-plugin</artifactId>
   <version>1.0.0</version>
+  <packaging>maven-plugin</packaging>
+
+  <name>RPM Maven Plugin</name>
+  <description>
+    Maven plugin which assembles files into an RPM package for installation on various target UNIX systems.
+  </description>
+  <inceptionYear>2005</inceptionYear>
+
+  <prerequisites>
+    <maven>${mavenVersion}</maven>
+  </prerequisites>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/mojohaus/rpm-maven-plugin/issues/</url>
+  </issueManagement>
+  <ciManagement>
+    <system>Travis-CI</system>
+    <url>https://travis-ci.org/mojohaus/rpm-maven-plugin</url>
+  </ciManagement>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>boba</id>
+      <name>Bob Allison</name>
+      <email>boba@codehaus.org</email>
+      <organization>None</organization>
+      <roles>
+        <role>Creator</role>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>bokken</id>
+      <name>Brett Okken</name>
+      <email>bokken@cerner.com</email>
+      <organization>Cerner</organization>
+      <organizationUrl>http://www.cerner.com</organizationUrl>
+      <timezone>-6</timezone>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>dantran</id>
+      <name>Dan Tran</name>
+      <email>dantran@gmail.com</email>
+      <organization>None</organization>
+      <timezone>-8</timezone>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <contributors>
+    <contributor>
+      <name>Kaare Nilsen</name>
+      <email>kaare.nilsen@gmail.com</email>
+      <organization>Artekk AS</organization>
+      <organizationUrl>http://arktekk.no</organizationUrl>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Rickard von Essen</name>
+      <email>rickard.von.essen@gmail.com</email>
+      <organization>Diabol AB</organization>
+      <organizationUrl>http://www.diabol.se</organizationUrl>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Niels Basjes</name>
+      <email>codehaus@basjes.nl</email>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <name>Salvatore Coppola</name>
+      <email>salvatore.coppola@eurotech.com</email>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </contributor>
+
+  </contributors>
+
+  <scm>
+    <connection>scm:git:https://github.com/mojohaus/rpm-maven-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/mojohaus/rpm-maven-plugin.git</developerConnection>
+    <url>https://github.com/mojohaus/rpm-maven-plugin</url>
+    <tag>epoch</tag>
+  </scm>
+
+  <properties>
+    <mavenVersion>3.6.3</mavenVersion>
+    <mojo.java.target>8</mojo.java.target>
+    <scmpublish.content>${project.build.directory}/staging/rpm-maven-plugin</scmpublish.content>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>${mavenVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact</artifactId>
+      <version>${mavenVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
+      <version>${mavenVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-settings</artifactId>
+      <version>${mavenVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <version>${mavenVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.shared</groupId>
+      <artifactId>maven-filtering</artifactId>
+      <version>3.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.shared</groupId>
+      <artifactId>maven-shared-utils</artifactId>
+      <version>3.4.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-archiver</artifactId>
+      <version>4.8.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-io</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugin-tools</groupId>
+      <artifactId>maven-plugin-annotations</artifactId>
+      <!-- annotations are not needed for plugin execution so you can remove this dependency for execution with using provided scope -->
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-sec-dispatcher</artifactId>
+      <version>2.0</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <configuration>
+            <excludes>
+              <!-- exclude local repo at jenkins -->
+              <exclude>.repository/*</exclude>
+            </excludes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>mojo-descriptor</id>
+            <goals>
+              <goal>descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>run-its</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <configuration>
+              <debug>true</debug>
+              <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+              <postBuildHookScript>verify</postBuildHookScript>
+              <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+              <settingsFile>src/it/settings.xml</settingsFile>
+              <properties>
+                <maven.unix.debug>true</maven.unix.debug>
+                <gpg.homedir>${project.build.testOutputDirectory}/gnupg</gpg.homedir>
+              </properties>
+              <!-- <pomIncludes> <pomInclude>rpm-sign*/pom.xml</pomInclude> </pomIncludes> -->
+              <pomExcludes>
+                <pomExclude>rpm-dirmode/pom.xml</pomExclude>
+              </pomExcludes>
+              <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+              </goals>
+            </configuration>
+            <executions>
+              <execution>
+                <id>integration-test</id>
+                <goals>
+                  <goal>install</goal>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
